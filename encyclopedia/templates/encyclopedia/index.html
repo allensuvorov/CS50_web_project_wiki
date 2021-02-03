@@ -12,7 +12,7 @@
             <li>{{ entry }}</li> // here will need to add urls
             {% comment %} 
             will use something like that
-            <li><a href="/polls/{{ question.id }}/">{{ question.question_text }}</a> 
+            <li><a href="/entries/{{ entry.id }}/">{{ entry.entry_text }}</a> 
             {% endcomment %}
         {% endfor %}
     </ul>
