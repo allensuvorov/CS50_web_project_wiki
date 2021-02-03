@@ -9,11 +9,10 @@
 
     <ul>
         {% for entry in entries %}
-            <li>{{ entry }}</li> // here will need to add urls
-            {% comment %} 
-            will use something like that
-            <li><a href="/entries/{{ entry.id }}/">{{ entry.entry_text }}</a> 
-            {% endcomment %}
+            {% comment %} <li>{{ entry }}</li> // here will need to add urls {% endcomment %}
+
+            <li><a href="/encyclopedia/{{ entry }}/">{{ entry }}</a> 
+
         {% endfor %}
     </ul>
 
