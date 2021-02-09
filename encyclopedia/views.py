@@ -12,3 +12,5 @@ def entry(request, entry):
     if util.get_entry(entry) is None:
         return render(request, "encyclopedia/error.html", {"content": "page not found"}) 
     return render(request, "encyclopedia/entry.html", {"entry": entry, "content": util.get_entry(entry)})
+
+# def search(reqest, query):
