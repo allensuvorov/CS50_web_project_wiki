@@ -14,7 +14,8 @@
                 <h2>Wiki</h2>
                 <form action="{% url 'search' %}" method="post">
                     {% csrf_token %}
-                    <input class="search" type="text" name="q" placeholder="Search Encyclopedia">
+                    {% comment %} <input class="search" type="text" name="q" placeholder="Search Encyclopedia"> {% endcomment %}
+                    {{ form }}
                     <input class="search" type="submit">
                 </form>
                 <div>
