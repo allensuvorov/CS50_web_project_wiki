@@ -34,8 +34,10 @@ def search(request):
             # search
 
             if util.get_entry(query):
-                return render(request, "encyclopedia/search.html", {
-                    "content": util.get_entry(query)
-                })
+                return entry(request, query)
+                # return render(request, "encyclopedia/search.html", {
+                #     "query": query, 
+                #     "content": util.get_entry(query)
+                # })
 
     return render(request, "encyclopedia/search.html")
