@@ -24,4 +24,18 @@ def entry(request, entry):
 
 # search for entry
 def search(request):
+    if request.method == "POST":
+        form = SearchForm(request.POST)
+        if form.is_valid():
+            
+            # Isolate the task from the 'cleaned' version of form data
+            query = form.cleaned_data["query"] # what's that?
+
+            # search
+
+            if util.get_entry(query):
+                return render(request, "encyclopedia/search.html", {
+                    "content": util.get_entry(query)
+                })
+
     return render(request, "encyclopedia/search.html")
