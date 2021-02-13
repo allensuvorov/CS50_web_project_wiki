@@ -31,13 +31,18 @@ def search(request):
             # Isolate the task from the 'cleaned' version of form data
             query = form.cleaned_data["query"] # what's that?
 
-            # search
-
+            # if query matches entry title
             if util.get_entry(query):
                 return entry(request, query)
-                # return render(request, "encyclopedia/search.html", {
-                #     "query": query, 
-                #     "content": util.get_entry(query)
-                # })
+            else:
+                # search for query as substring
+                found = []
+                for article in util.list_entries():
+                    # print (query, util.get_entry(article)) 
+                    if query.lower() in util.get_entry(article).lower():
+                        found.append(article)
 
-    return render(request, "encyclopedia/search.html")
+                return render(request, "encyclopedia/search.html", {
+                    "found": found,
+                    "query": query
+                })
