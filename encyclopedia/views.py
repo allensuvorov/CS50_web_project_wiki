@@ -1,5 +1,6 @@
 from django.shortcuts import render
 from django import forms 
+from markdown2 import Markdown
 
 from . import util
 
@@ -15,11 +16,14 @@ def index(request):
 def entry(request, entry):
     if util.get_entry(entry) is None:
         return render(request, "encyclopedia/error.html", {
-            "content": "page not found"
-            }) 
+            "content": "page not found",
+            "form": SearchForm()
+            })
+    markdowner = Markdown() 
     return render(request, "encyclopedia/entry.html", {
         "entry": entry, 
-        "content": util.get_entry(entry)
+        "content": markdowner.convert(util.get_entry(entry)),
+        "form": SearchForm()
         })
 
 # search for entry
@@ -44,5 +48,6 @@ def search(request):
 
                 return render(request, "encyclopedia/search.html", {
                     "found": found,
-                    "query": query
+                    "query": query,
+                    "form": SearchForm()
                 })
