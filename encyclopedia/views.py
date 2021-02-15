@@ -6,6 +6,9 @@ from . import util
 
 class SearchForm(forms.Form):
     query = forms.CharField(label="Search Encyclopedia")
+    # want to work on this part to set form same size as button
+    # query = forms.TextInput(attrs={'size': 10, 'title': 'Your name'})
+    
 
 def index(request):
     return render(request, "encyclopedia/index.html", {
@@ -30,6 +33,7 @@ def entry(request, entry):
 def search(request):
     if request.method == "POST":
         form = SearchForm(request.POST)
+
         if form.is_valid():
             
             # Isolate the task from the 'cleaned' version of form data
