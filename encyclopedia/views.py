@@ -5,9 +5,12 @@ from markdown2 import Markdown
 from . import util
 
 class SearchForm(forms.Form):
-    query = forms.CharField(label="Search Encyclopedia")
-    # want to work on this part to set form same size as button
-    # query = forms.TextInput(attrs={'size': 10, 'title': 'Your name'})
+    query = forms.CharField(
+        widget = forms.TextInput(attrs={
+            'class': 'search',
+            'placeholder': 'Search Encyclopedia'
+            }),
+        label="Search")
     
 
 def index(request):
