@@ -58,3 +58,9 @@ def search(request):
                     "query": query,
                     "form": SearchForm()
                 })
+
+# random page
+def random(request):
+    # get number of entries in the list 
+    # lenth = len(util.list_entries())
+    return entry(request, entry)
