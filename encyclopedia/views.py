@@ -1,6 +1,7 @@
 from django.shortcuts import render
 from django import forms 
 from markdown2 import Markdown
+import random
 
 from . import util
 
@@ -60,7 +61,5 @@ def search(request):
                 })
 
 # random page
-def random(request):
-    # get number of entries in the list 
-    # lenth = len(util.list_entries())
-    return entry(request, entry)
+def random_page(request):
+    return entry(request, random.choice(util.list_entries()))
