@@ -63,3 +63,7 @@ def search(request):
 # random page
 def random_page(request):
     return entry(request, random.choice(util.list_entries()))
+
+# new page
+def new(request):
+    return render(request, "encyclopedia/new.html")
