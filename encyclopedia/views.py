@@ -12,7 +12,22 @@ class SearchForm(forms.Form):
             'placeholder': 'Search Encyclopedia'
             }),
         label="Search")
-    
+
+class TitleForm(forms.Form):
+    title = forms.CharField(
+        widget = forms.TextInput(attrs={
+            'class': 'title',
+            'placeholder': 'Title'
+        })
+    )
+
+class ContentForm(forms.Form):
+    content = forms.CharField(
+        widget = forms.TextInput(attrs={
+            'class': 'text',
+            'placeholder': 'MarkDown Text'
+        })
+    )
 
 def index(request):
     return render(request, "encyclopedia/index.html", {
@@ -66,4 +81,7 @@ def random_page(request):
 
 # new page
 def new(request):
-    return render(request, "encyclopedia/new.html")
+    return render(request, "encyclopedia/new.html", {
+        "title_form": TitleForm(),
+        "content_form": ContentForm()
+    })
