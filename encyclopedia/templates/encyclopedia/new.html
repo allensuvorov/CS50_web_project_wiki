@@ -6,7 +6,10 @@
 
 {% block body %}
     <h1> New Page </h1>
-    {{ title_form }}
-    <br>
-    {{ content_form }}
+    <form class="d-flex flex-column" action="{% url 'new' %}" method="post">
+        {% csrf_token %}
+        {{ new_page_form }}
+        <br>
+        <input class="btn btn-outline-primary" type="submit">
+    </form>
 {% endblock %}

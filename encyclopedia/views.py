@@ -13,18 +13,16 @@ class SearchForm(forms.Form):
             }),
         label="Search")
 
-class TitleForm(forms.Form):
+class NewPageForm(forms.Form):
     title = forms.CharField(
         widget = forms.TextInput(attrs={
-            'class': 'title',
+            'class': 'form-control',
             'placeholder': 'Title'
         })
     )
-
-class ContentForm(forms.Form):
     content = forms.CharField(
         widget = forms.TextInput(attrs={
-            'class': 'text',
+            'class': 'form-control',
             'placeholder': 'MarkDown Text'
         })
     )
@@ -81,7 +79,11 @@ def random_page(request):
 
 # new page
 def new(request):
+    # if request.method == "POST":
+    #     form = NewPageForm(request.POST)
+    #     if form.is_valid():
+
     return render(request, "encyclopedia/new.html", {
-        "title_form": TitleForm(),
-        "content_form": ContentForm()
+        "new_page_form": NewPageForm(),
+        "form": SearchForm()
     })
