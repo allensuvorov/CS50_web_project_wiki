@@ -79,10 +79,18 @@ def random_page(request):
 
 # new page
 def new(request):
-    # if request.method == "POST":
-    #     form = NewPageForm(request.POST)
-    #     if form.is_valid():
-
+    if request.method == "POST":
+        form = NewPageForm(request.POST)
+        if form.is_valid():
+            title = form.cleaned_data["title"]
+            content = form.cleaned_data["content"]
+            if util.get_entry(title):
+                return render(request, "encyclopedia/error.html", {
+                    "content": "page " + title + " already exists",
+                    "form": SearchForm()
+                    })
+            util.save_entry(title, content)
+            return entry(request, title)
     return render(request, "encyclopedia/new.html", {
         "new_page_form": NewPageForm(),
         "form": SearchForm()
