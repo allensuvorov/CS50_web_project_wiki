@@ -21,7 +21,7 @@ class NewPageForm(forms.Form):
         })
     )
     content = forms.CharField(
-        widget = forms.TextInput(attrs={
+        widget = forms.Textarea(attrs={
             'class': 'form-control',
             'placeholder': 'MarkDown Text'
         })
