@@ -79,6 +79,7 @@ def random_page(request):
 
 # new page
 def new(request):
+
     if request.method == "POST":
         form = NewPageForm(request.POST)
         if form.is_valid():
@@ -92,6 +93,13 @@ def new(request):
             util.save_entry(title, content)
             return entry(request, title)
     return render(request, "encyclopedia/new.html", {
+        "new_page_form": NewPageForm(),
+        "form": SearchForm()
+    })
+
+def edit(request):
+    #
+    return render(request, "encyclopedia/edit.html", {
         "new_page_form": NewPageForm(),
         "form": SearchForm()
     })
