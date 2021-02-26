@@ -9,4 +9,5 @@ urlpatterns = [
     path("random", views.random_page, name="random"),
     path("new", views.new, name="new"),
     path("edit", views.edit, name="edit")
+    # To design URLs for an app, you create a Python module informally called a URLconf (URL configuration).
 ]
