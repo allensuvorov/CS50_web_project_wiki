@@ -97,9 +97,10 @@ def new(request):
         "form": SearchForm()
     })
 
-def edit(request):
+def edit(request, title):
     #
     return render(request, "encyclopedia/edit.html", {
         "new_page_form": NewPageForm(),
-        "form": SearchForm()
+        "form": SearchForm(),
+        "title": title
     })
