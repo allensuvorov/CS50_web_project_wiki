@@ -27,6 +27,8 @@ class NewPageForm(forms.Form):
         })
     )
 
+
+
 def index(request):
     return render(request, "encyclopedia/index.html", {
         "entries": util.list_entries(),
@@ -99,8 +101,24 @@ def new(request):
 
 def edit(request, title):
     #
+    class EditPageForm(forms.Form):
+        title_field = forms.CharField(
+            widget = forms.TextInput(attrs={
+                'class': 'form-control'
+                # 'value': 'Title to edit'
+            }),
+            initial = title
+        )
+        content_field = forms.CharField(
+            widget = forms.Textarea(attrs={
+                'class': 'form-control',
+                # 'value': 'MarkDown Text'
+            }),
+            initial = util.get_entry(title)
+        )
+    
     return render(request, "encyclopedia/edit.html", {
-        "new_page_form": NewPageForm(),
+        "edit_page_form": EditPageForm(),
         "form": SearchForm(),
         "title": title
     })
