@@ -6,7 +6,7 @@
 
 {% block body %}
     <h1> Edit entry: {{ title }} </h1>
-    <form class="d-flex flex-column" action="{% url 'new' %}" method="post">
+    <form class="d-flex flex-column" action="{% url title'/edit' %}" method="post">
         {% csrf_token %}
         {{ edit_page_form }}
         <br>
