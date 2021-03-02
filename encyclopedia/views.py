@@ -100,17 +100,10 @@ def new(request):
 def edit(request, title):
 
     class EditPageForm(forms.Form):
-        title_field = forms.CharField(
-            widget = forms.TextInput(attrs={
-                'class': 'form-control'
-                # 'value': 'Title to edit'
-            }),
-            initial = title
-        )
+        
         content_field = forms.CharField(
             widget = forms.Textarea(attrs={
-                'class': 'form-control',
-                # 'value': 'MarkDown Text'
+                'class': 'form-control'
             }),
             initial = util.get_entry(title)
         )
@@ -118,11 +111,11 @@ def edit(request, title):
     if request.method == "POST":
         form = EditPageForm(request.POST)
         if form.is_valid():
-            new_title = form.cleaned_data["title_field"]
+
             new_content = form.cleaned_data["content_field"]
-            print(new_title, new_content)
-            util.save_entry(new_title, new_content)
-            return entry(request, new_title)
+            # print(new_content)
+            util.save_entry(title, new_content)
+            return entry(request, title)
 
     return render(request, "encyclopedia/edit.html", {
         "edit_page_form": EditPageForm(),
