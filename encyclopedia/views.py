@@ -73,7 +73,6 @@ def search(request):
                     "form": SearchForm()
                 })
 
-# random page
 def random_page(request):
     return entry(request, random.choice(util.list_entries()))
 
@@ -100,7 +99,6 @@ def new(request):
 def edit(request, title):
 
     class EditPageForm(forms.Form):
-        
         content_field = forms.CharField(
             widget = forms.Textarea(attrs={
                 'class': 'form-control'
@@ -111,9 +109,7 @@ def edit(request, title):
     if request.method == "POST":
         form = EditPageForm(request.POST)
         if form.is_valid():
-
             new_content = form.cleaned_data["content_field"]
-            # print(new_content)
             util.save_entry(title, new_content)
             return entry(request, title)
 
