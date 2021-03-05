@@ -6,14 +6,10 @@
 
 {% block body %}
     <h1>Search results for: {{ query }} </h1>
-
     <ul>
         "{{ query }}" found in {{ found }}
         {% for entry in found %}
-
             <li><a href="{{ entry }}/">{{ entry }}</a> 
-            
         {% endfor %}
     </ul>
-
 {% endblock %}
