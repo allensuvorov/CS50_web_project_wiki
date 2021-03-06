@@ -46,7 +46,6 @@ def entry(request, entry):
         "form": SearchForm()
         })
 
-# search for entry
 def search(request):
     if request.method == "POST":
         form = SearchForm(request.POST)
@@ -76,7 +75,6 @@ def search(request):
 def random_page(request):
     return entry(request, random.choice(util.list_entries()))
 
-# new page
 def new(request):
 
     if request.method == "POST":
