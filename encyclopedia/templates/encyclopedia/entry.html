@@ -6,7 +6,5 @@
 
 {% block body %}
     <a href="edit"> Edit '{{entry}}' </a>
-    {% comment %} {% comment %} need to review: URL dispatcher {% endcomment %}
-    {% comment %} https://docs.djangoproject.com/en/3.1/topics/http/urls/ {% endcomment %}
     {{ content|safe }}
 {% endblock %}
