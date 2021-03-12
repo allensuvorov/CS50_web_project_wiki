@@ -5,6 +5,7 @@
 {% endblock %}
 
 {% block body %}
-    <a href="edit"> Edit '{{entry}}' </a>
+    {% comment %} <a href="edit"> Edit '{{entry}}' </a> {% endcomment %}
+    <a href="{% url 'edit' entry %}"> Edit '{{entry}}' </a>
     {{ content|safe }}
 {% endblock %}
