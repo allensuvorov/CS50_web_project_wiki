@@ -62,8 +62,8 @@ def search(request):
                 # search for query as substring
                 found = []
                 for article in util.list_entries():
-                    # print (query, util.get_entry(article)) 
                     if query.lower() in util.get_entry(article).lower():
+                        # print (query, util.get_entry(article)) 
                         found.append(article)
 
                 return render(request, "encyclopedia/search.html", {
