@@ -84,7 +84,7 @@ def new(request):
             content = form.cleaned_data["content"]
             if util.get_entry(title):
                 return render(request, "encyclopedia/error.html", {
-                    "content": "page " + title + " already exists",
+                    "content": "page -" + title + "- already exists",
                     "form": SearchForm()
                     })
             util.save_entry(title, content)
