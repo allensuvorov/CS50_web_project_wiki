@@ -1,7 +1,10 @@
-#Wiki
-Design a Wikipedia-like online encyclopedia.
+# Project1* - "Wiki"
+- Description: Design a Wikipedia-like online encyclopedia.
+- Video overview of the completed project: https://youtu.be/3OjSn9fLptI
+- Project Spec: https://cs50.harvard.edu/web/2020/projects/1/wiki/
+- Course: CS50's Web Programming with Python and JavaScript 2021
 
-Specification
+## Specification
 
 Complete the implementation of your Wiki encyclopedia. You must fulfill the following requirements:
 
